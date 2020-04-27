@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Platform } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { Card } from 'react-native-elements'
 import { CAMPSITES } from '../shared/campsites'
 import { PROMOTIONS } from '../shared/promotions'
@@ -27,7 +27,7 @@ class Home extends Component {
         this.state = {
             campsites: CAMPSITES,
             promotions: PROMOTIONS,
-            partners: PARTNERS
+            partners: PARTNERS,
         };
     }
 
