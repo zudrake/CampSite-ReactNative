@@ -58,7 +58,9 @@ function RenderComments({ comments }) {
 }
 function RenderCampsite(props) {
     const { campsite } = props;
-    const recognizeDrag = ({ dx }) => (dx < -200) ? true : false;
+    const recognizeDrag = ({ dx }) => (dx < -200) ? true : false;//dx - accumulated distance of the gesture since the touch started
+    const recognigzeComment = ({ dx }) => (dx < +200) ? true : false;
+
     const view = React.createRef();
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
@@ -86,6 +88,8 @@ function RenderCampsite(props) {
                     ],
                     { cancelable: false }
                 );
+            } else if (recognigzeComment(gestureState)) {
+                return props.onShowModal();
             }
             return true;
         }
@@ -98,7 +102,8 @@ function RenderCampsite(props) {
                 duration={2000}
                 delay={1000}
                 ref={view}
-                {...panResponder.panHandlers}>
+                {...panResponder.panHandlers}
+            >
                 <Card
                     featuredTitle={campsite.name}
                     image={{ uri: baseUrl + campsite.image }}
