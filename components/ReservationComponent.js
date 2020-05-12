@@ -38,7 +38,8 @@ class Reservation extends Component {
 
     render() {
         return (
-            <Animatable.View animation="zoomIn" duration={2000} delay={1000}>
+            < Animatable.View animation="zoomIn" duration={2000} delay={1000} >
+                {/* for IOS */}
                 <ScrollView>
                     <View style={styles.formRow}>
                         <Text style={styles.formLabel}>Number of Campers</Text>
@@ -142,7 +143,7 @@ class Reservation extends Component {
                         </View>
                     </Modal> */}
                 </ScrollView>
-            </Animatable.View>
+            </Animatable.View >
         );
     }
 }
