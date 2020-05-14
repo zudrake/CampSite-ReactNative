@@ -47,6 +47,7 @@ class Reservation extends Component {
         }
         return permission;
     }
+
     async presentLocalNotification(date) {
         const permission = await this.obtainNotificationPermission();
         if (permission.status === 'granted') {
